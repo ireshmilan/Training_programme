@@ -5,7 +5,7 @@
  */
 package frog;
 
-import java.awt.BorderLayout;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -23,8 +23,8 @@ public class Frog {
         int distance;
         String type;
         int remaining;
-        
-        Scanner scanner = new Scanner(System.in);
+        try {
+            Scanner scanner = new Scanner(System.in);
         System.out.println("Select Distance or Time");
         type=scanner.next();
         if(type.equals("Distance")){
@@ -32,22 +32,41 @@ public class Frog {
             distance=scanner.nextInt();
             remaining=distance%9;
             if(remaining==0){
-                System.out.println("Waiting Time is"+(distance/9)*8);
+                System.out.println("John Waiting Time is "+(distance/9)*8+"seconds");
             }
             else if(remaining<=5){
-                System.out.println("Waiting Time is"+((distance/9)*8+1));
+                System.out.println("John Waiting Time is "+((distance/9)*8+1)+"seconds");
             }
             else if(remaining<=8){
-                System.out.println("Waiting Time is"+((distance/9)*8+3));
+                System.out.println("John Waiting Time is "+((distance/9)*8+3)+"seconds");
             }
            
         }
         else if(type.equals("Time")){
-        
+            System.out.println("Enter Time");
+            seconds=scanner.nextInt();
+            remaining=seconds%8;
+             if(remaining==0){
+                System.out.println("John jump distance is "+(seconds/8)*9+"m");
+            }
+            else if(remaining<=1){
+                System.out.println("John jump distance is "+((seconds/8)*9+5)+"m");
+            }
+            else if(remaining<=3){
+                System.out.println("John jump distance is "+((seconds/8)*9+8)+"m");
+            }
+             else if(remaining<=7){
+                System.out.println("John jump distance is "+((seconds/8)*9+9)+"m");
+            }
         }
         else{
             System.out.println("Invalid options...");
     }
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage() +" You can use only Integer for Time & Date");
+            
+        }
+        
         
     }
     
