@@ -10,6 +10,16 @@ package anonymousinnerexample;
  * @author Iresh
  */
 public class Student {
-    
+    public static void main(String[] args) {
+        Age obj =new Age() {
+            @Override
+            public void getAge() {
+                 System.out.println("Age is "+x);
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               
+            }
+        };
+        obj.getAge();
+    }
     
 }
