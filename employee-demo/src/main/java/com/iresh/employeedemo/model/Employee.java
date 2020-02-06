@@ -1,4 +1,4 @@
-package com.iresh.model;
+package com.iresh.employeedemo.model;
 
 import java.util.ArrayList;
 import java.util.List;

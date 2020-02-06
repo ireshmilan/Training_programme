@@ -1,6 +1,6 @@
-package com.iresh.controler;
+package com.iresh.employeedemo.controller;
 
-import com.iresh.model.Employee;
+import com.iresh.employeedemo.model.Employee;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,10 +13,8 @@ import java.util.List;
 public class EmployeeControler {
 
     @RequestMapping("/employees")
-    public String display(){
-        return ("hello");
-//    public List<Employee> getEmployees() {
-//        return Employee.getAllEmployees();
+   public List<Employee> getEmployees() {
+        return Employee.getAllEmployees();
     }
 
 }
