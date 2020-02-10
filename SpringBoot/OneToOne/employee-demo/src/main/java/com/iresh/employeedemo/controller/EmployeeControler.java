@@ -2,13 +2,9 @@ package com.iresh.employeedemo.controller;
 
 import com.iresh.employeedemo.model.Address;
 import com.iresh.employeedemo.model.Employee;
-import com.iresh.employeedemo.model.Telephone;
 import com.iresh.employeedemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RestController
@@ -21,7 +17,6 @@ public class EmployeeControler {
 
     @RequestMapping(value = "/employees", method = RequestMethod.POST)
    public Employee save(@RequestBody Employee employee){
-
         return employeeService.save(employee);
     }
 
@@ -35,13 +30,6 @@ public class EmployeeControler {
         adress.setCity("Ruwanwella");
         adress.setCountry("SL");
         employee.setAddress(adress);
-
-        Telephone telephone = new Telephone();
-        telephone.setNumber("0772402832");
-        telephone.setEmployee(employee);
-        List<Telephone> list = new ArrayList<>();
-	    list.add(telephone);
-
         return employee;
     }
 

@@ -1,7 +1,6 @@
 package com.iresh.employeedemo.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Employee {
@@ -16,19 +15,9 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
-    List<Telephone>telephones;
 
     public Integer getId() {
         return id;
-    }
-
-    public List<Telephone> getTelephones() {
-        return telephones;
-    }
-
-    public void setTelephones(List<Telephone> telephones) {
-        this.telephones = telephones;
     }
 
     public void setId(Integer id) {
