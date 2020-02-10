@@ -19,10 +19,5 @@ public class EmployeeControler {
         return employeeService.save(employee);
     }
 
-    @RequestMapping("/employees/{id}")
-    public Employee getEmployee(@PathVariable int id){
-
-        return new Employee(1,"iresh","Ruwanwella");
-    }
 
 }
