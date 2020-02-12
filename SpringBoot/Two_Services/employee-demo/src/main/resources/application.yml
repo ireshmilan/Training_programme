@@ -12,4 +12,8 @@ spring:
       ddl-auto: create
   application:
     name: employee-demo
-
+service:
+  host: http://localhost:8081
+  allocation:
+    findAll: /services/allocation
+    findByEmployeeId: /services/allocation/findByEmployeeId
