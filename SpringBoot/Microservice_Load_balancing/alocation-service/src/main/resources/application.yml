@@ -11,4 +11,6 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: create
 
+  application:
+    name: allocation-service
 
