@@ -27,6 +27,7 @@ public class Server {
         sendMsg.setHandler(httpExchange -> sendMsg(httpExchange));
 
         httpServer.start();
+        System.out.println("Server Started!!!!!!");
     }
 
     private static void sendMsg(HttpExchange httpExchange) throws IOException {
@@ -44,7 +45,7 @@ public class Server {
             } else {
                 response="No such a user";
             }
-            
+
         }
 
         httpExchange.sendResponseHeaders(200,response.getBytes().length);
@@ -52,8 +53,8 @@ public class Server {
         outputStream.write(response.getBytes());
         outputStream.close();
 
-        
-       
+
+
     }
 
     private static void list(HttpExchange httpExchange) throws IOException {
@@ -70,10 +71,10 @@ public class Server {
         URI registeredURI=httpExchange.getRequestURI();
         String query=registeredURI.getRawQuery();
         String clientName = query.substring(query.indexOf("=") +1 ,query.length());
-        System.out.println("name :"+ clientName);
-        String response= "registered!!!!!!!!";
+        System.out.println("client name :"+ clientName);
+        String response= "registered successfully";
         if (userList.keySet().contains(clientName)){
-            response="Already exist!!!!!!!!!!";
+            response="Already exist";
         }
         userList.put(clientName,"Default message");
 
