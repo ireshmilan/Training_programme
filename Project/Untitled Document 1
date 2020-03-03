@@ -1,0 +1,20 @@
+{
+	"registeredNumber":"CAA-1088",
+	"registerdYear":"2014",
+	"vehicleBrand":{
+		"brandName":"Toyota"
+	
+},
+	"vehicleModel":{
+		"name":"Aqua",
+	"color":"Red",
+	"modelYear":"2013"},
+	"damage":[{
+		"damagers":"Buffer"
+	},
+					 {"damagers":"Light"}]
+						
+						
+						
+	
+}

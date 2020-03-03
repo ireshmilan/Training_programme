@@ -1,8 +1,12 @@
 package com.example.demo.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Data
 public class Car {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,4 +20,14 @@ public class Car {
     @OneToOne(cascade = CascadeType.ALL)
     private VehicleModel vehicleModel;
 
+    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
+    List<Damage> damage;
+
+    public List<Damage> getDamage() {
+        return damage;
+    }
+
+    public void setDamage(List<Damage> damage) {
+        this.damage = damage;
+    }
 }
