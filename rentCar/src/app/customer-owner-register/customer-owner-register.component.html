@@ -1,0 +1,34 @@
+<label>First Name</label>
+<input type="text" [(ngModel)]="firstName" placeholder="first">  
+<label>Middle Name</label>
+<input type="text" [(ngModel)]="middleName" placeholder="middle">  
+<label>Last Name</label>
+<input type="text" [(ngModel)]="lastName" placeholder="last">  <br>
+<label>ID Card No</label>
+<input type="text" [(ngModel)]="idCardNo" placeholder="Id">
+<br>
+<label>Date of Birth</label>
+<input type="text" [(ngModel)]="dob" placeholder="Enter DOB">
+<br>
+<label>Email</label>
+<input type="text" [(ngModel)]="email" placeholder="email">
+<br>
+<label>Telephone</label>
+<input type="text" [(ngModel)]="telephone1" placeholder="fist no">
+<input type="text" [(ngModel)]="telephone2" placeholder="second no">
+<br>
+<label>Address</label><br>
+<label>No</label>
+<input type="text" [(ngModel)]="no" placeholder="address no">
+<label>Lane</label>
+<input type="text" [(ngModel)]="lane" placeholder="lane">
+<label>City</label>
+<input type="text" [(ngModel)]="city" placeholder="city ">
+<label>Type</label>
+<select id="type" [(ngModel)]="Ownertype">
+  <option value="customer">Customer</option>
+  <option value="owner">Owner</option>
+</select>
+<br>
+<br>
+<button type="button" (click)="save()">Save</button>
