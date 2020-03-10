@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("service")
 public class CustomerOwnerController {
@@ -22,5 +23,11 @@ public class CustomerOwnerController {
     @GetMapping("/get")
     public List<CustomerOwner> findAllCustomerOwner() {
         return customerOwnerService.getAllCustomerOwner();
+    }
+
+    @GetMapping("/get/{id}")
+    public List<CustomerOwner> findAllById(@PathVariable("id") Integer carId){
+
+        return customerOwnerService.getAllCustomerOwnerById(carId);
     }
 }

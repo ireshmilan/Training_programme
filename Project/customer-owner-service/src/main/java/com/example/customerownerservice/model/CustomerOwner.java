@@ -19,6 +19,7 @@ public class CustomerOwner {
     private String dateOfBirth;
     private String idCardNumber;
 
+
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 

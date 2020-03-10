@@ -25,4 +25,12 @@ public class CustomerOwnerServiceImpl implements CustomerOwnerService {
     public List<CustomerOwner> getAllCustomerOwner() {
         return customerOwnerRepository.findAll();
     }
+
+    @Override
+    public List<CustomerOwner> getAllCustomerOwnerById(Integer id) {
+
+        return customerOwnerRepository.findAllById(id);
+    }
+
+
 }

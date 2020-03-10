@@ -7,4 +7,5 @@ import java.util.List;
 public interface CustomerOwnerService {
     CustomerOwner save(CustomerOwner customerOwner);
     List<CustomerOwner> getAllCustomerOwner();
+    List<CustomerOwner> getAllCustomerOwnerById(Integer id);
 }
