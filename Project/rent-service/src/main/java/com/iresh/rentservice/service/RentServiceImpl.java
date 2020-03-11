@@ -5,6 +5,8 @@ import com.iresh.rentservice.repository.RentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RentServiceImpl implements RentService {
 
@@ -14,5 +16,11 @@ public class RentServiceImpl implements RentService {
     @Override
     public Rent save(Rent rent) {
         return rentRepository.save(rent);
+    }
+
+    @Override
+    public List<Rent> findById(Integer id) {
+        return rentRepository.findByCustomerId(id);
+
     }
 }

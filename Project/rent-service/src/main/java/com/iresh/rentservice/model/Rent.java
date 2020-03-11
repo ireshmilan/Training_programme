@@ -22,4 +22,13 @@ public class Rent {
     private Integer customerId;
     private Integer carId;
 
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+
 }
