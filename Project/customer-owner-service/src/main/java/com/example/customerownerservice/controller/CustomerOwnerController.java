@@ -1,6 +1,7 @@
 package com.example.customerownerservice.controller;
 
 import com.example.customerownerservice.model.CustomerOwner;
+import com.example.customerownerservice.model.Rent;
 import com.example.customerownerservice.service.CustomerOwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +30,10 @@ public class CustomerOwnerController {
     public List<CustomerOwner> findAllById(@PathVariable("id") Integer carId){
 
         return customerOwnerService.getAllCustomerOwnerById(carId);
+    }
+
+    @GetMapping("getRent/{empId}")
+    public List<Rent> fetchAllRent(@PathVariable Integer empId){
+        return customerOwnerService.fetchAllRent(empId);
     }
 }

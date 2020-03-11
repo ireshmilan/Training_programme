@@ -28,5 +28,7 @@ public class CustomerOwner {
 
     @OneToMany(mappedBy = "customerOwner",cascade = CascadeType.ALL)
     List<Telephone>telephone;
+
+    private Rent rent;
 }
 
