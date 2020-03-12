@@ -20,6 +20,10 @@ public class CustomerOwnerController {
     public CustomerOwner save(@RequestBody CustomerOwner customerOwner) {
         return customerOwnerService.save(customerOwner);
     }
+    @PutMapping("/update")
+    public CustomerOwner update(@RequestBody CustomerOwner customerOwner){
+        return customerOwnerService.update(customerOwner);
+    }
 
     @GetMapping("/get")
     public List<CustomerOwner> findAllCustomerOwner() {
@@ -32,7 +36,7 @@ public class CustomerOwnerController {
         return customerOwnerService.getAllCustomerOwnerById(carId);
     }
 
-    @GetMapping("getRent/{empId}")
+    @GetMapping("/getRent/{empId}")
     public List<Rent> fetchAllRent(@PathVariable Integer empId){
         return customerOwnerService.fetchAllRent(empId);
     }

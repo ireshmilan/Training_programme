@@ -18,4 +18,12 @@ public class Telephone {
             @JoinColumn
             @JsonIgnore
     CustomerOwner customerOwner;
+
+    public CustomerOwner getCustomerOwner() {
+        return customerOwner;
+    }
+
+    public void setCustomerOwner(CustomerOwner customerOwner) {
+        this.customerOwner = customerOwner;
+    }
 }

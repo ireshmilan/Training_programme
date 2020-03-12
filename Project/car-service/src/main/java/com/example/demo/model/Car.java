@@ -14,6 +14,7 @@ public class Car {
     private String registeredNumber;
     private String registerdYear;
     private String vehicleBrand;
+    private Integer ownerId;
 
     @OneToOne(cascade = CascadeType.ALL)
     private VehicleModel vehicleModel;
@@ -21,4 +22,59 @@ public class Car {
     @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
     List<Damage> damage;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRegisteredNumber() {
+        return registeredNumber;
+    }
+
+    public void setRegisteredNumber(String registeredNumber) {
+        this.registeredNumber = registeredNumber;
+    }
+
+    public String getRegisterdYear() {
+        return registerdYear;
+    }
+
+    public void setRegisterdYear(String registerdYear) {
+        this.registerdYear = registerdYear;
+    }
+
+    public String getVehicleBrand() {
+        return vehicleBrand;
+    }
+
+    public void setVehicleBrand(String vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public VehicleModel getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(VehicleModel vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    public List<Damage> getDamage() {
+        return damage;
+    }
+
+    public void setDamage(List<Damage> damage) {
+        this.damage = damage;
+    }
 }

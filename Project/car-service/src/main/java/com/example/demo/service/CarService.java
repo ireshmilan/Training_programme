@@ -9,6 +9,6 @@ public interface CarService  {
     Car save(Car car);
     List<Car> getAllCar();
     Car getCarById(Integer id);
-    List<CustomerOwner> fetchAllOwners(Integer ownerId);
+    List<Car> fetchAllOwners(Integer ownerId);
 
 }

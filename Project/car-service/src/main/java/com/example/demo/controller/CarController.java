@@ -24,6 +24,10 @@ public class CarController {
         return carService.getAllCar();
     }
 
+    @GetMapping("/findAllOwners/{id}")
+    public List<Car> findAllOwners(@PathVariable("id") Integer id){
+        return carService.fetchAllOwners(id);
+    }
 
 
 }

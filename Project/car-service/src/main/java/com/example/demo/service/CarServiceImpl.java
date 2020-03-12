@@ -52,20 +52,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<CustomerOwner> fetchAllOwners(Integer ownerId) {
-        HttpHeaders httpHeaders = new HttpHeaders();
-        HttpEntity<String> httpEntity=new HttpEntity<>("",httpHeaders);
-
-        ResponseEntity<CustomerOwner[]> result =restTemplate.exchange("http://localhost/service/get/"+ownerId,
-                HttpMethod.GET,httpEntity,CustomerOwner[].class);
-
-        CustomerOwner[] resultBody = result.getBody();
-        List<CustomerOwner> customerOwners = new ArrayList<>();
-
-        for (CustomerOwner customerOwner : resultBody) {
-            customerOwner.setCar(this.getCarById(customerOwner.getId()));
-            customerOwners.add(customerOwner);
-        }
-        return customerOwners;
+    public List<Car> fetchAllOwners(Integer ownerId) {
+        return carRepository.findByOwnerId(ownerId);
     }
 }

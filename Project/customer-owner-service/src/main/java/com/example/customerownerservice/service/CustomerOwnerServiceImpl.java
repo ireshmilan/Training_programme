@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerOwnerServiceImpl implements CustomerOwnerService {
@@ -49,21 +50,37 @@ public class CustomerOwnerServiceImpl implements CustomerOwnerService {
     }
 
     @Override
-    public List<Rent> fetchAllRent(Integer rentId) {
-        HttpHeaders httpHeaders=new HttpHeaders();
-        HttpEntity<String> httpEntity=new HttpEntity<>( "",httpHeaders);
-        ResponseEntity<Rent[]> responseEntity=restTemplate.exchange("http://localhost:8686/service/rent/"+rentId,
-        HttpMethod.GET,httpEntity,Rent[].class);
+    public CustomerOwner findById(Integer id) {
+        Optional<CustomerOwner> customerOwnerServiceOptional = customerOwnerRepository.findById(id);
+        if (customerOwnerServiceOptional.isPresent())
+            return customerOwnerServiceOptional.get();
+        return null;
+    }
+
+    @Override
+    public List<Rent> fetchAllRent(Integer customerId) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
+        ResponseEntity<Rent[]> responseEntity = restTemplate.exchange("http://localhost:8686/service/rent/" + customerId,
+                HttpMethod.GET, httpEntity, Rent[].class);
 
         Rent[] resultBody = responseEntity.getBody();
-        List<Rent> rents =new ArrayList<>();
+        List<Rent> rents = new ArrayList<>();
 
-        for(Rent rent : resultBody){
-            rent.setCustomerOwner((CustomerOwner) this.getAllCustomerOwnerById(rent.getCustomerId()));
+        for (Rent rent : resultBody) {
+            rent.setCustomerOwner(this.findById(rent.getCustomerId()));
             rents.add(rent);
         }
         return rents;
     }
 
+    @Override
+    public CustomerOwner update(CustomerOwner customerOwner) {
+        if(customerOwner.getId()!=0){
+            for(Telephone telephone:customerOwner.getTelephone())
+                telephone.setCustomerOwner(customerOwner);
+        }
 
+        return customerOwnerRepository.save(customerOwner);
+    }
 }

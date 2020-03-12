@@ -21,7 +21,6 @@ public class RentController {
 
     @GetMapping("/rent/{id}")
     public List<Rent> getAllRentById(@PathVariable("id") Integer customerId){
-
         return rentService.findById(customerId);
     }
 

@@ -9,5 +9,7 @@ public interface CustomerOwnerService {
     CustomerOwner save(CustomerOwner customerOwner);
     List<CustomerOwner> getAllCustomerOwner();
     List<CustomerOwner> getAllCustomerOwnerById(Integer id);
-    List<Rent> fetchAllRent(Integer empId);
+    CustomerOwner findById(Integer id);
+    List<Rent> fetchAllRent(Integer rentId);
+    CustomerOwner update(CustomerOwner customerOwner);
 }
