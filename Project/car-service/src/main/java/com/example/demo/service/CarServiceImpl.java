@@ -55,4 +55,15 @@ public class CarServiceImpl implements CarService {
     public List<Car> fetchAllOwners(Integer ownerId) {
         return carRepository.findByOwnerId(ownerId);
     }
+
+    @Override
+    public Car update(Car car) {
+        if(car.getId() != 0){
+            for(Damage damage:car.getDamage())
+                damage.setCar(car);
+        }
+        return carRepository.save(car);
+    }
+
+
 }

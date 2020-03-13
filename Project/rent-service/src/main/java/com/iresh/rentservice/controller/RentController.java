@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("service")
+@RequestMapping("/service")
 public class RentController {
 
     @Autowired
@@ -19,9 +19,15 @@ public class RentController {
         return rentService.save(rent);
     }
 
+    //find by customer id
     @GetMapping("/rent/{id}")
     public List<Rent> getAllRentById(@PathVariable("id") Integer customerId){
         return rentService.findById(customerId);
+    }
+
+    @PutMapping("/update")
+    public Rent update (@RequestBody Rent rent){
+        return rentService.update(rent);
     }
 
 }

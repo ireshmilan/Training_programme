@@ -13,6 +13,8 @@ public class Car {
     private Integer id;
     private String registeredNumber;
     private String registerdYear;
+    private String fuleType;
+    private String transmission;
     private String vehicleBrand;
     private Integer ownerId;
 
@@ -76,5 +78,21 @@ public class Car {
 
     public void setDamage(List<Damage> damage) {
         this.damage = damage;
+    }
+
+    public String getFuleType() {
+        return fuleType;
+    }
+
+    public void setFuleType(String fuleType) {
+        this.fuleType = fuleType;
+    }
+
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
     }
 }

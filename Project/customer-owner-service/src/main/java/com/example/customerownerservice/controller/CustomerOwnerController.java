@@ -35,7 +35,7 @@ public class CustomerOwnerController {
 
         return customerOwnerService.getAllCustomerOwnerById(carId);
     }
-
+  //customer rents
     @GetMapping("/getRent/{empId}")
     public List<Rent> fetchAllRent(@PathVariable Integer empId){
         return customerOwnerService.fetchAllRent(empId);

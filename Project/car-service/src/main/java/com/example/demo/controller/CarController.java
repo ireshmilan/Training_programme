@@ -19,6 +19,11 @@ public class CarController {
         return carService.save(car);
     }
 
+    @PutMapping("/update")
+    public Car update(@RequestBody Car car){
+        return carService.update(car);
+    }
+
     @GetMapping("/findAllCars")
     public List<Car> findAllCar(){
         return carService.getAllCar();

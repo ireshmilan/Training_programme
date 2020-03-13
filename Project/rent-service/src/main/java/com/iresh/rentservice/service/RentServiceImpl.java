@@ -19,8 +19,13 @@ public class RentServiceImpl implements RentService {
     }
 
     @Override
+    public Rent update(Rent rent) {
+            rentRepository.save(rent);
+        return rent;
+    }
+
+    @Override
     public List<Rent> findById(Integer id) {
         return rentRepository.findByCustomerId(id);
-
     }
 }

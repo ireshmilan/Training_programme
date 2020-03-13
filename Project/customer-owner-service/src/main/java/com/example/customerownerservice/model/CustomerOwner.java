@@ -18,13 +18,12 @@ public class CustomerOwner {
     private String gender;
     private String dateOfBirth;
     private String idCardNumber;
+    private String email;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Email email;
 
     @OneToMany(mappedBy = "customerOwner",cascade = CascadeType.ALL)
     List<Telephone>telephone;
@@ -93,13 +92,6 @@ public class CustomerOwner {
         this.address = address;
     }
 
-    public Email getEmail() {
-        return email;
-    }
-
-    public void setEmail(Email email) {
-        this.email = email;
-    }
 
     public List<Telephone> getTelephone() {
         return telephone;
@@ -107,6 +99,14 @@ public class CustomerOwner {
 
     public void setTelephone(List<Telephone> telephone) {
         this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 
