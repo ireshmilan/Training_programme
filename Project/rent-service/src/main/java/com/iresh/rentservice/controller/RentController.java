@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/service")
+@CrossOrigin("*")
 public class RentController {
 
     @Autowired
@@ -19,6 +20,11 @@ public class RentController {
         return rentService.save(rent);
     }
 
+    //find all rent datails
+    @GetMapping("/getAllRent")
+    public List<Rent> findAllRent(){
+        return rentService.getAllRent();
+    }
     //find by customer id
     @GetMapping("/rent/{id}")
     public List<Rent> getAllRentById(@PathVariable("id") Integer customerId){

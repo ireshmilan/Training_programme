@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("service")
+@RequestMapping("/service")
+@CrossOrigin("*")
 public class CarController {
 
     @Autowired
     CarService carService;
     @PostMapping("/save")
     public Car save(@RequestBody Car car){
+        System.out.println(car);
         return carService.save(car);
     }
 
@@ -29,10 +31,16 @@ public class CarController {
         return carService.getAllCar();
     }
 
+    @GetMapping("/findAllCars/{id}")
+    public  List<Car> findAllCarsById(@PathVariable("id") Integer carId){
+        return carService.getAllCars(carId);
+}
+
     @GetMapping("/findAllOwners/{id}")
     public List<Car> findAllOwners(@PathVariable("id") Integer id){
         return carService.fetchAllOwners(id);
     }
+
 
 
 }

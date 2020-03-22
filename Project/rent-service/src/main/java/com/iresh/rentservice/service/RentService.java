@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface RentService {
     Rent save(Rent rent);
+    List<Rent> getAllRent();
     List<Rent> findById(Integer id);
     Rent update(Rent rent);
 }

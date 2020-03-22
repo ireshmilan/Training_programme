@@ -1,19 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Car;
-import com.example.demo.model.CustomerOwner;
-import com.example.demo.model.Damage;
 import com.example.demo.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,8 +26,6 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car save(Car car) {
-       for(Damage damage:car.getDamage())
-           damage.setCar(car);
         return carRepository.save(car);
     }
 
@@ -58,12 +49,11 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car update(Car car) {
-        if(car.getId() != 0){
-            for(Damage damage:car.getDamage())
-                damage.setCar(car);
-        }
         return carRepository.save(car);
     }
 
-
+    @Override
+    public List<Car> getAllCars(Integer id) {
+        return carRepository.findAllById(id);
+    }
 }

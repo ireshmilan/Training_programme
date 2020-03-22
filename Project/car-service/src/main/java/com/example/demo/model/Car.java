@@ -3,11 +3,13 @@ package com.example.demo.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+import java.sql.Timestamp;
 
 @Entity
 @Data
 public class Car {
+
+
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -16,13 +18,16 @@ public class Car {
     private String fuleType;
     private String transmission;
     private String vehicleBrand;
-    private Integer ownerId;
+    private String acOrNonAc;
+    private String comment;
+    private Timestamp createdDate;
+    private boolean availability;
+    private String ownerId;
+    @Lob
+    private byte[] photo;
 
     @OneToOne(cascade = CascadeType.ALL)
     private VehicleModel vehicleModel;
-
-    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
-    List<Damage> damage;
 
     public Integer getId() {
         return id;
@@ -56,11 +61,11 @@ public class Car {
         this.vehicleBrand = vehicleBrand;
     }
 
-    public Integer getOwnerId() {
+    public String getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(Integer ownerId) {
+    public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
     }
 
@@ -70,14 +75,6 @@ public class Car {
 
     public void setVehicleModel(VehicleModel vehicleModel) {
         this.vehicleModel = vehicleModel;
-    }
-
-    public List<Damage> getDamage() {
-        return damage;
-    }
-
-    public void setDamage(List<Damage> damage) {
-        this.damage = damage;
     }
 
     public String getFuleType() {
@@ -94,5 +91,45 @@ public class Car {
 
     public void setTransmission(String transmission) {
         this.transmission = transmission;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getAcOrNonAc() {
+        return acOrNonAc;
+    }
+
+    public void setAcOrNonAc(String acOrNonAc) {
+        this.acOrNonAc = acOrNonAc;
+    }
+
+    public Timestamp getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Timestamp createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public boolean isAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 }

@@ -3,6 +3,7 @@ package com.example.customerownerservice.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,9 @@ public class CustomerOwner {
     private String dateOfBirth;
     private String idCardNumber;
     private String email;
-
+    private String userName;
+    private String password;
+    private Timestamp joinedDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;

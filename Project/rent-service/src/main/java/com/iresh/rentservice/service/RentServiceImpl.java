@@ -28,4 +28,9 @@ public class RentServiceImpl implements RentService {
     public List<Rent> findById(Integer id) {
         return rentRepository.findByCustomerId(id);
     }
+
+    @Override
+    public List<Rent> getAllRent() {
+        return rentRepository.findAll();
+    }
 }
