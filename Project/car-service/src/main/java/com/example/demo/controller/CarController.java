@@ -2,10 +2,14 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Car;
 import com.example.demo.service.CarService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -15,11 +19,21 @@ public class CarController {
 
     @Autowired
     CarService carService;
+
     @PostMapping("/save")
-    public Car save(@RequestBody Car car){
-        System.out.println(car);
-        return carService.save(car);
+    public Car save(@RequestParam("photo") MultipartFile multipartFile, @RequestParam("car") String car) throws IOException {
+        Car updatedCar = new ObjectMapper().readValue(car, Car.class);
+
+        updatedCar.setPhoto(multipartFile.getBytes());
+        System.out.println("aaaaaaaaaaa"+updatedCar);
+        return carService.save(updatedCar);
     }
+
+//    @PostMapping("/save")
+//    public Car save(@RequestBody Car car){
+//        System.out.println(car);
+//        return carService.save(car);
+//    }
 
     @PutMapping("/update")
     public Car update(@RequestBody Car car){

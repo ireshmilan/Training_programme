@@ -8,6 +8,7 @@ import java.util.List;
 public interface CarRepository extends JpaRepository<Car,Integer> {
     List<Car> findByOwnerId(Integer id);
     List<Car> findAllById(Integer id);
+    Car findByRegisteredNumber(String registerdNumber);
 
 
 }

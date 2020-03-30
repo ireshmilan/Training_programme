@@ -20,6 +20,7 @@ public class Car {
     private String vehicleBrand;
     private String acOrNonAc;
     private String comment;
+
     private Timestamp createdDate;
     private boolean availability;
     private String ownerId;

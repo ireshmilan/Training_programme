@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,8 +27,17 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car save(Car car) {
-        return carRepository.save(car);
+
+        Car dbCar = carRepository.findByRegisteredNumber(car.getRegisteredNumber());
+        if(dbCar==null) {
+            car.setAvailability(Boolean.TRUE);
+            car.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+           return carRepository.save(car);
+        }
+
+        return null;
     }
+
 
     @Override
     public List<Car> getAllCar() {

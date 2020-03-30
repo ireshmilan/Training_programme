@@ -16,10 +16,10 @@ public class CustomerOwnerController {
     @Autowired
     CustomerOwnerService customerOwnerService;
 
-    @PostMapping("/save")
-    public CustomerOwner save(@RequestBody CustomerOwner customerOwner) {
-        return customerOwnerService.save(customerOwner);
-    }
+//    @PostMapping("/save")
+//    public CustomerOwner save(@RequestBody CustomerOwner customerOwner) {
+//        return customerOwnerService.save(customerOwner);
+//    }
     @PutMapping("/update")
     public CustomerOwner update(@RequestBody CustomerOwner customerOwner){
         return customerOwnerService.update(customerOwner);

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CustomerOwnerRepository extends JpaRepository<CustomerOwner,Integer> {
     List<CustomerOwner> findAllById(Integer id);
+    CustomerOwner findByUserName(String username);
+
 }

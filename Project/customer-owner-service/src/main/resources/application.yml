@@ -13,3 +13,5 @@ spring:
 server:
   port: 7676
 
+jwt:
+  secret: javainuse

@@ -14,12 +14,12 @@ public class CustomerOwner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String firstName;
-    private String middleName;
     private String lastName;
+    private String email;
     private String gender;
     private String dateOfBirth;
     private String idCardNumber;
-    private String email;
+
     private String userName;
     private String password;
     private Timestamp joinedDate;
@@ -47,13 +47,6 @@ public class CustomerOwner {
         this.firstName = firstName;
     }
 
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
 
     public String getLastName() {
         return lastName;
