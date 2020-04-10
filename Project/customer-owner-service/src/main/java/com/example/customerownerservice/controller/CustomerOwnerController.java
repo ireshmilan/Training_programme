@@ -25,16 +25,19 @@ public class CustomerOwnerController {
         return customerOwnerService.update(customerOwner);
     }
 
-    @GetMapping("/get")
-    public List<CustomerOwner> findAllCustomerOwner() {
-        return customerOwnerService.getAllCustomerOwner();
-    }
+//    @GetMapping("/get")
+//    public List<CustomerOwner> findAllCustomerOwner() {
+//        return customerOwnerService.getAllCustomerOwner();
+//    }
 
     @GetMapping("/get/{id}")
     public List<CustomerOwner> findAllById(@PathVariable("id") Integer carId){
 
         return customerOwnerService.getAllCustomerOwnerById(carId);
     }
+
+
+
   //customer rents
     @GetMapping("/getRent/{empId}")
     public List<Rent> fetchAllRent(@PathVariable Integer empId){

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,9 +22,10 @@ public class CustomerOwner {
     private String dateOfBirth;
     private String idCardNumber;
 
-    private String userName;
+    private String username;
     private String password;
-    private Timestamp joinedDate;
+    private LocalDate joinedDate;
+    private Boolean activity;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;

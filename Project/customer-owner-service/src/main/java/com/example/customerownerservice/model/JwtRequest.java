@@ -4,7 +4,7 @@ public class JwtRequest {
 
     private static final long serialVersionUID = 5926468583005150707L;
 
-    private String userName;
+    private String username;
     private String password;
 
     public JwtRequest(){
@@ -12,16 +12,16 @@ public class JwtRequest {
     }
 
     public JwtRequest(String userName,String password){
-        this.setUserName(userName);
+        this.setUsername(userName);
         this.setPassword(password);
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getPassword() {
