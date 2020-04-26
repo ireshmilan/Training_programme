@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +32,8 @@ public class CarServiceImpl implements CarService {
         Car dbCar = carRepository.findByRegisteredNumber(car.getRegisteredNumber());
         if(dbCar==null) {
             car.setAvailability(Boolean.TRUE);
-            car.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+            car.setHide(Boolean.TRUE);
+            car.setCreatedDate(LocalDate.now());
            return carRepository.save(car);
         }
 
@@ -59,11 +61,20 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car update(Car car) {
+        car.setHide(Boolean.TRUE);
+        return carRepository.save(car);
+    }
+
+
+    @Override
+    public Car delete(Car car) {
+        car.setHide(Boolean.FALSE);
         return carRepository.save(car);
     }
 
     @Override
     public List<Car> getAllCars(Integer id) {
+
         return carRepository.findAllById(id);
     }
 }

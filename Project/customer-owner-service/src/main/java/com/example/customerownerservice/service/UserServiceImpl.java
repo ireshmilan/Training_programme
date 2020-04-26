@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 @Service
 public class UserServiceImpl implements UserDetailsService {
-
+    public static CustomerOwner user;
     @Autowired
     private PasswordEncoder bcryptEncoder;
 
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         UserDetails userDetails=null;
-        CustomerOwner user = customerOwnerRepository.findByUsername(username);
+        user = customerOwnerRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
@@ -52,6 +52,8 @@ public class UserServiceImpl implements UserDetailsService {
 
             customerOwner.setJoinedDate(LocalDate.now());
             customerOwner.setActivity(true);
+            customerOwner.setDlt(true);
+            customerOwner.setRole("Admin");
             customerOwner.setPassword(bcryptEncoder.encode(customerOwner.getPassword()));
             return customerOwnerRepository.save(customerOwner);
         }

@@ -1,5 +1,7 @@
 package com.example.customerownerservice.model;
 
+import java.time.LocalDate;
+
 public class Rent {
     private Integer id;
     private String needDate;
@@ -7,8 +9,10 @@ public class Rent {
     private String start;
     private String end;
     private String comments;
+    private LocalDate createdDate;
     private Integer customerId;
     private Integer carId;
+    private boolean active;
 
     private CustomerOwner customerOwner;
 
@@ -60,6 +64,14 @@ public class Rent {
         this.comments = comments;
     }
 
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
+    }
+
     public Integer getCustomerId() {
         return customerId;
     }
@@ -74,6 +86,14 @@ public class Rent {
 
     public void setCarId(Integer carId) {
         this.carId = carId;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public CustomerOwner getCustomerOwner() {

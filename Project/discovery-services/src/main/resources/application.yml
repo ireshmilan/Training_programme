@@ -4,5 +4,19 @@ eureka:
     fetch-registry: false
   datacenter: Colombo-Sri lanka
   environment: Production
+
 server:
   port: 8761
+
+ribbon:
+  ReadTimeout: 600000
+  ConnectTimeout: 60000
+
+#zuul:
+#  routes:
+#    car:
+#      path: /car/**
+#      url: car
+#    transaction:
+#      path: /transaction/**
+#      url: http://localhost:8081

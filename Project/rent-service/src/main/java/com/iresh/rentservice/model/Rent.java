@@ -2,10 +2,8 @@ package com.iresh.rentservice.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -19,8 +17,17 @@ public class Rent {
     private String start;
     private String end;
     private String comments;
+    private LocalDate createdDate;
     private Integer customerId;
     private Integer carId;
+    private boolean active;
+    private boolean complete;
+    private String status;
+    @Transient
+    private CustomerOwner[] customerOwner;
+    @Transient
+    private Car[] car;
+
 
     public Integer getCustomerId() {
         return customerId;
@@ -85,4 +92,38 @@ public class Rent {
     public void setCarId(Integer carId) {
         this.carId = carId;
     }
+
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Car[] getCar() {
+        return car;
+    }
+
+    public void setCar(Car[] car) {
+        this.car = car;
+    }
+
+    public CustomerOwner[] getCustomerOwner() {
+        return customerOwner;
+    }
+
+    public void setCustomerOwner(CustomerOwner[] customerOwner) {
+        this.customerOwner = customerOwner;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+
 }

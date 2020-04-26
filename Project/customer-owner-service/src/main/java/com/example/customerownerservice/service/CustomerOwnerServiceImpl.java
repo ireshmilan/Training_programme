@@ -80,7 +80,7 @@ public class CustomerOwnerServiceImpl implements CustomerOwnerService{
             for(Telephone telephone:customerOwner.getTelephone())
                 telephone.setCustomerOwner(customerOwner);
         }
-
+      customerOwner.setDlt(true);
         return customerOwnerRepository.save(customerOwner);
     }
 

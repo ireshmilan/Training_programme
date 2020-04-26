@@ -5,6 +5,7 @@ import com.example.customerownerservice.config.JwtTokenUtil;
 import com.example.customerownerservice.model.CustomerOwner;
 import com.example.customerownerservice.model.JwtRequest;
 import com.example.customerownerservice.model.JwtResponse;
+import com.example.customerownerservice.model.Rent;
 import com.example.customerownerservice.service.CustomerOwnerService;
 import com.example.customerownerservice.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class JwtAuthenticationController {
                 .loadUserByUsername(authenticationRequest.getUsername());
 
         final String token = jwtTokenUtil.generateToken(userDetails);
-
+        System.out.println("ddddddddddddddddddd "+token);
         return ResponseEntity.ok(new JwtResponse(token));
     }
 
@@ -68,4 +69,11 @@ public class JwtAuthenticationController {
 public boolean findByActive(){
         return customerOwnerService.findByActivity(true);
 }
+
+    @GetMapping("/getRent/{empId}")
+    public List<Rent> fetchAllRent(@PathVariable Integer empId){
+        return customerOwnerService.fetchAllRent(empId);
+    }
+
+
 }

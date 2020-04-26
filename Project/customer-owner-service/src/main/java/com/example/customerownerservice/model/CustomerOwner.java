@@ -26,12 +26,13 @@ public class CustomerOwner {
     private String password;
     private LocalDate joinedDate;
     private Boolean activity;
+    private Boolean dlt;
+    private String role;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-
-    @OneToMany(mappedBy = "customerOwner",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customerOwner",cascade = CascadeType.ALL,orphanRemoval=true,fetch=FetchType.LAZY)
     List<Telephone>telephone;
 
     public Integer getId() {
@@ -106,6 +107,22 @@ public class CustomerOwner {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Boolean getDlt() {
+        return dlt;
+    }
+
+    public void setDlt(Boolean dlt) {
+        this.dlt = dlt;
     }
 }
 

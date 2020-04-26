@@ -11,6 +11,7 @@ public interface CarService  {
     Car getCarById(Integer id);
     List<Car> fetchAllOwners(Integer ownerId);
     Car update(Car car);
+    Car delete(Car car);
     List<Car> getAllCars(Integer id);
 
 

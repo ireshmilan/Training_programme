@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/service")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class CarController {
 
     @Autowired
@@ -40,15 +40,26 @@ public class CarController {
         return carService.update(car);
     }
 
+    @PutMapping("/delete")
+    public Car delete(@RequestBody Car car){
+        return carService.delete(car);
+    }
+
     @GetMapping("/findAllCars")
     public List<Car> findAllCar(){
         return carService.getAllCar();
     }
-
-    @GetMapping("/findAllCars/{id}")
-    public  List<Car> findAllCarsById(@PathVariable("id") Integer carId){
-        return carService.getAllCars(carId);
+//this one use for rent
+    @GetMapping("/findAllCarsId/{id}")
+    public  List<Car> findAllCarsById(@PathVariable("id") Integer id){
+        System.out.println("id   "+id);
+        return carService.getAllCars(id);
 }
+//this one us for tables
+    @GetMapping("/findAllCars/{id}")
+    public  List<Car> findAllCarsByNo(@PathVariable("id") Integer id){
+        return carService.getAllCars(id);
+    }
 
     @GetMapping("/findAllOwners/{id}")
     public List<Car> findAllOwners(@PathVariable("id") Integer id){

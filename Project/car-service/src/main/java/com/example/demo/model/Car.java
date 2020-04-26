@@ -4,9 +4,11 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name="cars")
 public class Car {
 
 
@@ -21,14 +23,19 @@ public class Car {
     private String acOrNonAc;
     private String comment;
 
-    private Timestamp createdDate;
+
+    private LocalDate createdDate;
     private boolean availability;
+    private boolean hide;
     private String ownerId;
     @Lob
     private byte[] photo;
 
     @OneToOne(cascade = CascadeType.ALL)
     private VehicleModel vehicleModel;
+
+
+
 
     public Integer getId() {
         return id;
@@ -110,11 +117,11 @@ public class Car {
         this.acOrNonAc = acOrNonAc;
     }
 
-    public Timestamp getCreatedDate() {
+    public LocalDate getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Timestamp createdDate) {
+    public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -132,5 +139,13 @@ public class Car {
 
     public void setPhoto(byte[] photo) {
         this.photo = photo;
+    }
+
+    public boolean isHide() {
+        return hide;
+    }
+
+    public void setHide(boolean hide) {
+        this.hide = hide;
     }
 }

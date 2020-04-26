@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: api-gateway
+  datasource:
+    url: jdbc:mysql://localhost:3306/api_gateway_database?createDatabaseIfNotExist=true
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+server:
+  port: 6699
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    car:
+      path: /car/**
+      url: car
+    user:
+      path: /user/**
+      url: user
+
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+
+jwt:
+  secret: javainuse
