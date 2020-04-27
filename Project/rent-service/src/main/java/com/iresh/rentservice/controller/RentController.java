@@ -30,6 +30,10 @@ public class RentController {
         return rentService.findAll();
     }
 
+    @GetMapping("/getAllPreviousRents")
+    public List<Rent> findAllPrevious(){
+        return rentService.findAllPrevious();
+    }
 
     @GetMapping("/findAllRents/{id}")
     public  List<Rent> findAllCRentById(@PathVariable("id") Integer id){

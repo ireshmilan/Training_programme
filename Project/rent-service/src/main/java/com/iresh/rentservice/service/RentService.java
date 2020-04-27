@@ -13,5 +13,6 @@ public interface RentService {
     Rent cancel(Rent rent);
     Rent complete(Rent rent);
     List<Rent> findAll();
+    List<Rent> findAllPrevious();
     List<Rent> getAllRent(Integer id);
 }

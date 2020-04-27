@@ -163,6 +163,26 @@ public class RentServiceImpl implements RentService {
         }
         return rents;
     }
+
+    @Override
+    public List<Rent> findAllPrevious() {
+
+
+        List<Rent> rents = new ArrayList<>();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        HttpEntity<String> httpEntity = new HttpEntity<>("", httpHeaders);
+
+        for (Rent rent : rentRepository.findAllPrevios()) {
+            System.out.println("rent   "+rent);
+            ResponseEntity<Car[]> responseEntity = restTemplate.exchange("http://localhost:9923/service/findAllCarsId/" + rent.getCarId(), HttpMethod.GET, httpEntity, Car[].class);
+            rent.setCar(responseEntity.getBody());
+            ResponseEntity<CustomerOwner[]> responseEntity1=restTemplate.exchange("http://localhost:7676/service/get/"+rent.getCustomerId(), HttpMethod.GET,httpEntity, CustomerOwner[].class);
+            rent.setCustomerOwner(responseEntity1.getBody());
+            rents.add(rent);
+        }
+        return rents;
+
+    }
 }
 
 

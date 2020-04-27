@@ -53,12 +53,12 @@ public class UserServiceImpl implements UserDetailsService {
             customerOwner.setJoinedDate(LocalDate.now());
             customerOwner.setActivity(true);
             customerOwner.setDlt(true);
-            customerOwner.setRole("Admin");
+            customerOwner.setRole("User");
             customerOwner.setPassword(bcryptEncoder.encode(customerOwner.getPassword()));
             return customerOwnerRepository.save(customerOwner);
         }
+throw new IllegalArgumentException();
 
-        return null;
 
     }
 

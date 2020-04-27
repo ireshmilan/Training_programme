@@ -38,6 +38,22 @@ public class CustomerOwnerServiceImpl implements CustomerOwnerService{
         return customerOwnerRepository.save(customerOwner);
     }
 
+
+    @Override
+    public CustomerOwner findByUsername(String username) {
+        return customerOwnerRepository.findByUsername(username);
+    }
+
+    @Override
+    public CustomerOwner findByEmail(String email) {
+        return customerOwnerRepository.findByEmail(email);
+    }
+
+    @Override
+    public CustomerOwner findByIdCardNumber(String idCardNumber) {
+        return customerOwnerRepository.findByIdCardNumber(idCardNumber);
+    }
+
     @Override
     public List<CustomerOwner> getAllCustomerOwner() {
         return customerOwnerRepository.findAll();
@@ -84,20 +100,7 @@ public class CustomerOwnerServiceImpl implements CustomerOwnerService{
         return customerOwnerRepository.save(customerOwner);
     }
 
-    @Override
-    public CustomerOwner findByUsername(String username) {
-        return customerOwnerRepository.findByUsername(username);
-    }
 
-    @Override
-    public CustomerOwner findByEmail(String email) {
-        return customerOwnerRepository.findByEmail(email);
-    }
-
-    @Override
-    public CustomerOwner findByIdCardNumber(String idCardNumber) {
-        return customerOwnerRepository.findByIdCardNumber(idCardNumber);
-    }
 
     @Override
     public boolean findByActivity(boolean activity) {

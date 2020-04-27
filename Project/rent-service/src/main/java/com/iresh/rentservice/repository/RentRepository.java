@@ -16,5 +16,8 @@ public interface RentRepository extends JpaRepository<Rent,Integer> {
     @Query(value ="SELECT * FROM rent u WHERE u.active = true ",nativeQuery = true)
     List<Rent>findAll();
 
+    @Query(value ="SELECT * FROM rent u WHERE u.active = false ",nativeQuery = true)
+    List<Rent>findAllPrevios();
+
     List<Rent> findAllById(Integer id);
 }
